@@ -18,4 +18,8 @@ export class TodoListComponent {
             new TodoItem(5, "HTTP and Observables")
         ];
     }
+
+    onComplete (completedTodoItem: TodoItem, index: number) {
+        setTimeout(() => this.todoList.splice(index, 1), 500);
+    }
 }

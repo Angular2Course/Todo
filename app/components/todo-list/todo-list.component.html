@@ -1,5 +1,5 @@
 <ul class="list-group">
-    <li class="list-group-item" *ngFor="let todoItem of todoList">
-        <a2c-todo-item [todoItem]="todoItem"></a2c-todo-item>
+    <li class="list-group-item" *ngFor="let todoItem of todoList; let index = index;">
+        <a2c-todo-item [todoItem]="todoItem" (complete)="onComplete($event, index)"></a2c-todo-item>
     </li>
 </ul>
