@@ -1,5 +1,5 @@
 import { TodoItem } from "../../models/TodoItem";
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
     moduleId: module.id,
@@ -7,17 +7,7 @@ import { Component } from "@angular/core";
     templateUrl: 'todo-list.component.html'
 })
 export class TodoListComponent {
-    todoList: TodoItem[];
-
-    constructor () {
-        this.todoList = [
-            new TodoItem(1, "Angular 2 architecture"),
-            new TodoItem(2, "Template syntax"),
-            new TodoItem(3, "Dependency injection"),
-            new TodoItem(4, "Forms and validation"),
-            new TodoItem(5, "HTTP and Observables")
-        ];
-    }
+    @Input() todoList: TodoItem[];
 
     onComplete (completedTodoItem: TodoItem, index: number) {
         setTimeout(() => this.todoList.splice(index, 1), 500);
