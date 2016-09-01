@@ -1,5 +1,5 @@
 import { TodoItem } from "../../models/TodoItem";
-import { Component, Input } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
     moduleId: module.id,
@@ -8,8 +8,9 @@ import { Component, Input } from "@angular/core";
 })
 export class TodoListComponent {
     @Input() todoList: TodoItem[];
+    @Output() remove = new EventEmitter<TodoItem>();
 
-    onComplete (completedTodoItem: TodoItem, index: number) {
-        setTimeout(() => this.todoList.splice(index, 1), 500);
+    onComplete (completedTodoItem: TodoItem) {
+        this.remove.emit(completedTodoItem);
     }
 }
